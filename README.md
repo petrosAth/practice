@@ -1,10 +1,6 @@
 # About
 
-This is a practise repo for quick testing and trying new staff.
-
-## Languages
-
-- `HTML`
+This is a practice repository for quick testing and trying new staff.
 
 ## Tools
 
