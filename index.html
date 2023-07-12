@@ -7,19 +7,30 @@
   </head>
   <body>
     <div id="app">
-      <form>
-        <label for="mail">Email:</label>
-        <input type="email" id="mail" name="mail" />
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" />
-        <label for="zip">Zip Code:</label>
-        <input type="text" id="zip" name="zip" />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
-        <label for="password-confirm">Password:</label>
-        <input type="password" id="password-confirm" name="password-confirm" />
-        <button>Submit</button>
-      </form>
+      <div class="container">
+        <form class="form">
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="mail" />
+          <span class="error mail">&nbsp;</span>
+          <label for="country">Country:</label>
+          <input type="text" id="country" name="country" />
+          <span class="error country">&nbsp;</span>
+          <label for="zip">Zip Code:</label>
+          <input type="text" id="zip" name="zip" />
+          <span class="error zip">&nbsp;</span>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" />
+          <span class="error password">&nbsp;</span>
+          <label for="password-confirm">Password:</label>
+          <input
+            type="password"
+            id="password-confirm"
+            name="password-confirm"
+          />
+          <span class="error password-confirm">&nbsp;</span>
+          <button>Submit</button>
+        </form>
+      </div>
     </div>
     <script type="module" src="/src/scripts/main.js"></script>
   </body>

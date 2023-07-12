@@ -1,0 +1,54 @@
+body {
+  font-family: var(--ff);
+  font-size: var(--fs-p);
+  font-weight: var(--fw-n);
+}
+
+#app {
+  padding-top: 25vh;
+
+  .container {
+    margin: auto;
+    width: 300px;
+    padding: 50px;
+    border-radius: var(--br);
+    box-shadow: var(--shadow);
+
+    .form {
+      display: grid;
+      gap: 3px;
+
+      label {
+        padding-left: 5px;
+      }
+
+      label:not(:first-child) {
+        padding-top: 5px;
+      }
+
+      input {
+        border-radius: var(--br);
+        border: 2px solid lightgray;
+        padding: 5px;
+      }
+
+      .error {
+        padding-left: 5px;
+        font-size: var(--fs-err);
+        font-weight: var(--fw-n);
+        color: red;
+      }
+
+      button {
+        margin-top: 45px;
+        padding: 15px;
+        border: none;
+        border-radius: var(--br);
+        background-color: lightcoral;
+        color: white;
+        font-weight: var(--fw-m);
+        font-size: var(--fs-b);
+      }
+    }
+  }
+}

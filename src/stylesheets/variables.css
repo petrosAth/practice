@@ -1,0 +1,17 @@
+:root {
+  --ff: "Roboto", sans-serif;
+
+  --fw-n: 300;
+  --fw-m: 600;
+  --fw-b: 800;
+
+  --fs-2: 5rem;
+  --fs-3: 2rem;
+  --fs-p: 1rem;
+  --fs-b: 1.5rem;
+  --fs-err: 0.75rem;
+
+  --shadow: 0 0 10px hsl(0 0% 0% / 25%);
+  --shadow-i: inset 0 0 5px hsl(0 0% 0% / 15%);
+  --br: 10px;
+}
