@@ -5,7 +5,7 @@ body {
 }
 
 #app {
-  padding-top: 25vh;
+  padding-top: 15vh;
 
   .container {
     margin: auto;
@@ -28,8 +28,22 @@ body {
 
       input {
         border-radius: var(--br);
-        border: 2px solid lightgray;
+        border: none;
         padding: 5px;
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow: var(--shadow-i);
+        }
+      }
+
+      input:valid {
+        border: 2px solid hsl(136, 86%, 73% / 50%);
+      }
+
+      input:invalid {
+        border: 2px solid hsl(358, 66%, 40% / 15%);
       }
 
       .error {
@@ -44,7 +58,7 @@ body {
         padding: 15px;
         border: none;
         border-radius: var(--br);
-        background-color: lightcoral;
+        background-color: hsl(358, 88%, 69%);
         color: white;
         font-weight: var(--fw-m);
         font-size: var(--fs-b);
