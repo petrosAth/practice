@@ -9,23 +9,35 @@
     <div id="app">
       <div class="container">
         <form class="form">
+          <!-- #mail -->
           <label for="mail">Email:</label>
           <input type="email" id="mail" name="mail" required />
           <span class="error mail">&nbsp;</span>
+          <!-- #country -->
           <label for="country">Country:</label>
           <input type="text" id="country" name="country" required />
           <span class="error country">&nbsp;</span>
+          <!-- #zip -->
           <label for="zip">Zip Code:</label>
-          <input type="text" id="zip" name="zip" required />
+          <input type="text" id="zip" name="zip" minlength="4" required />
           <span class="error zip">&nbsp;</span>
+          <!-- #password -->
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="4"
+            required
+          />
           <span class="error password">&nbsp;</span>
+          <!-- #password-confirm -->
           <label for="password-confirm">Password:</label>
           <input
             type="password"
             id="password-confirm"
             name="password-confirm"
+            minlength="4"
             required
           />
           <span class="error password-confirm">&nbsp;</span>
