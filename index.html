@@ -7,23 +7,7 @@
   </head>
   <body>
     <div id="app">
-      <img src="#" />
-      <script>
-        const img = document.querySelector('img');
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=wTpxTeZdtT4DgfYZ7tZcyZyJnqHQN2kc&s=cat&weirdness=10', {
-          mode: 'cors',
-        })
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (response) {
-            console.log(response);
-            img.src = response.data.images.original.url;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      </script>
+      <img id="img" />
     </div>
     <script type="module" src="/src/scripts/main.js"></script>
   </body>
