@@ -10,31 +10,38 @@ const renderImg = (url) => {
 
 const getInput = () => {
   const input = document.querySelector('#input');
-  return input.value;
+  return input.value || 'cat';
 };
 
-const loadImg = () => {
-  const searchString = getInput() || 'cat';
-  fetch(`https://api.giphy.com/v1/gifs/translate?api_key=wTpxTeZdtT4DgfYZ7tZcyZyJnqHQN2kc&s=${searchString}&rating=r`, {
-    mode: 'cors',
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      renderImg(response.data.images.original.url);
-    })
-    .catch((error) => console.log(error));
-};
-
-const btnListener = () => {
-  const btn = document.querySelector('#btn');
-  btn.addEventListener('click', () => {
-    loadImg();
+const getGif = (searchString) => {
+  return new Promise((resolve, reject) => {
+    fetch(
+      `https://api.giphy.com/v1/gifs/translate?api_key=wTpxTeZdtT4DgfYZ7tZcyZyJnqHQN2kc&s=${searchString}&rating=r`,
+      { mode: 'cors' }
+    )
+      .then((response) => {
+        return response.status == 200 ? response.json() : reject(`\nERROR: getGif | status: ${response.status}`);
+      })
+      .then((response) => resolve(response.data.images.original.url))
+      .catch((error) => console.log(`\nERROR: getGif | ${error}`));
   });
 };
 
-const initApp = () => {
-  loadImg();
-  btnListener();
+const showGif = () => {
+  const searchString = getInput();
+  getGif(searchString)
+    .then(renderImg)
+    .catch((error) => {
+      console.log(`\nERROR: showGif | ${error}`);
+    });
 };
 
-initApp();
+const btnListener = (func) => {
+  const btn = document.querySelector('#btn');
+  btn.addEventListener('click', () => func());
+};
+
+const init = (() => {
+  showGif();
+  btnListener(showGif);
+})();
