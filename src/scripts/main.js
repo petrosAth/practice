@@ -8,8 +8,14 @@ const renderImg = (url) => {
   img.src = url;
 };
 
+const getInput = () => {
+  const input = document.querySelector('#input');
+  return input.value;
+};
+
 const loadImg = () => {
-  fetch('https://api.giphy.com/v1/gifs/translate?api_key=wTpxTeZdtT4DgfYZ7tZcyZyJnqHQN2kc&s=cat', {
+  const searchString = getInput() || 'cat';
+  fetch(`https://api.giphy.com/v1/gifs/translate?api_key=wTpxTeZdtT4DgfYZ7tZcyZyJnqHQN2kc&s=${searchString}&rating=r`, {
     mode: 'cors',
   })
     .then((response) => response.json())
@@ -21,7 +27,9 @@ const loadImg = () => {
 
 const btnListener = () => {
   const btn = document.querySelector('#btn');
-  btn.addEventListener('click', loadImg);
+  btn.addEventListener('click', () => {
+    loadImg();
+  });
 };
 
 const initApp = () => {
