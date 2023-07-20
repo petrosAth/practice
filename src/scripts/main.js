@@ -18,8 +18,15 @@ const loadImg = () => {
     })
     .catch((error) => console.log(error));
 };
+
+const btnListener = () => {
+  const btn = document.querySelector('#btn');
+  btn.addEventListener('click', loadImg);
+};
+
 const initApp = () => {
   loadImg();
+  btnListener();
 };
 
 initApp();
