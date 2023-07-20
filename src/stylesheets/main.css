@@ -1,0 +1,6 @@
+#app {
+  padding-top: var(--padding-top);
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  justify-items: center;
+}
