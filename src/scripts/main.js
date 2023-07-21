@@ -41,7 +41,9 @@ const btnListener = (func) => {
   btn.addEventListener('click', () => func());
 };
 
-const init = (() => {
+const init = () => {
   showGif();
   btnListener(showGif);
-})();
+};
+
+init();
