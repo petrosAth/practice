@@ -30,6 +30,15 @@ class LinkedList {
       return searchList(node);
     }
   }
+  prepend(value) {
+    let node = this.listHead;
+    if (node === null) {
+      node = new Node(value);
+      return;
+    }
+    const newHeadNode = new Node(value, node);
+    this.listHead = newHeadNode;
+  }
   get head() {
     return this.listHead;
   }
