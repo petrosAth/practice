@@ -96,6 +96,28 @@ class LinkedList {
     return searchList(node);
   }
 
+  contains(value) {
+    const node = this.listHead;
+
+    if (node === null) {
+      return undefined;
+    }
+
+    const searchList = (node) => {
+      if (node.value === value) {
+        return true;
+      }
+
+      if (node.nextNode === null) {
+        return false;
+      }
+
+      return searchList(node.nextNode);
+    };
+
+    return searchList(node);
+  }
+
   get size() {
     const node = this.listHead;
     let size = 0;
