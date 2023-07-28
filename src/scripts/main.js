@@ -69,14 +69,14 @@ class LinkedList {
   }
 
   get head() {
-    return this.listHead;
+    return this.listHead === null ? undefined : this.listHead;
   }
 
   get tail() {
     const node = this.listHead;
 
     if (node === null) {
-      return null;
+      return undefined;
     }
 
     const searchList = (node) => {
