@@ -76,6 +76,26 @@ class LinkedList {
     return searchList(node, index);
   }
 
+  pop() {
+    const node = this.listHead;
+
+    if (node === null) {
+      return;
+    }
+
+    const searchList = (node, lastNode = null) => {
+      if (node.nextNode === null) {
+        node = null;
+        lastNode.nextNode = null;
+        return;
+      }
+
+      return searchList(node.nextNode, node);
+    };
+
+    return searchList(node);
+  }
+
   get size() {
     const node = this.listHead;
     let size = 0;
