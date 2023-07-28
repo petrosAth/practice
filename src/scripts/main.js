@@ -181,4 +181,27 @@ class LinkedList {
 
     return searchList(node);
   }
+
+  get toString() {
+    const node = this.listHead;
+
+    if (node === null) {
+      return undefined;
+    }
+
+    let listString = `( ${node.value} )`;
+
+    const searchList = (node) => {
+      if (node === null) {
+        listString += ' -> null';
+        return listString;
+      }
+
+      listString += ` -> ( ${node.value} )`;
+
+      return searchList(node.nextNode);
+    };
+
+    return searchList(node.nextNode);
+  }
 }
