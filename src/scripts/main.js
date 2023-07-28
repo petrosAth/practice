@@ -118,6 +118,27 @@ class LinkedList {
     return searchList(node);
   }
 
+  find(value) {
+    const node = this.listHead;
+    let index = 0;
+
+    const searchList = (node) => {
+      if (node === null) {
+        return null;
+      }
+
+      if (node.value === value) {
+        return index;
+      }
+
+      index++;
+
+      return searchList(node.nextNode);
+    };
+
+    return searchList(node);
+  }
+
   get size() {
     const node = this.listHead;
     let size = 0;
