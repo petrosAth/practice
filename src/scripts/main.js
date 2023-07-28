@@ -170,6 +170,39 @@ class LinkedList {
     return searchList(node);
   }
 
+  removeAt(index) {
+    const node = this.listHead;
+    let nodeIndex = 0;
+
+    if (node === null) {
+      return;
+    }
+
+    const searchList = (node, lastNode) => {
+      if (node === null) {
+        return;
+      }
+
+      if (nodeIndex === index) {
+        if (index === 0) {
+          this.listHead = node.nextNode;
+        } else {
+          lastNode.nextNode = node.nextNode;
+        }
+
+        node = null;
+
+        return;
+      }
+
+      nodeIndex++;
+
+      return searchList(node.nextNode, node);
+    };
+
+    return searchList(node);
+  }
+
   get size() {
     const node = this.listHead;
     let size = 0;
