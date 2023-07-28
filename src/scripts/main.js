@@ -139,6 +139,37 @@ class LinkedList {
     return searchList(node);
   }
 
+  insertAt(value, index) {
+    const node = this.listHead;
+    const newNode = new Node(value);
+    let nodeIndex = 0;
+
+    const searchList = (node, lastNode = null) => {
+      if (node === null) {
+        this.listHead = newNode;
+        return;
+      }
+
+      if (index === 0) {
+        newNode.nextNode = node;
+        this.listHead = newNode;
+        return;
+      }
+
+      if (nodeIndex === index) {
+        newNode.nextNode = node;
+        lastNode.nextNode = newNode;
+        return;
+      }
+
+      nodeIndex++;
+
+      searchList(node.nextNode, node);
+    };
+
+    return searchList(node);
+  }
+
   get size() {
     const node = this.listHead;
     let size = 0;
