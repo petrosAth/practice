@@ -47,10 +47,6 @@ class LinkedList {
     this.listHead = newHeadNode;
   }
 
-  get head() {
-    return this.listHead;
-  }
-
   get size() {
     const node = this.listHead;
     let size = 0;
@@ -62,11 +58,33 @@ class LinkedList {
     const searchList = (node) => {
       size++;
 
-      if (node.nextNode !== null) {
-        searchList(node.nextNode);
+      if (node.nextNode === null) {
+        return size;
       }
 
-      return size;
+      return searchList(node.nextNode);
+    };
+
+    return searchList(node);
+  }
+
+  get head() {
+    return this.listHead;
+  }
+
+  get tail() {
+    const node = this.listHead;
+
+    if (node === null) {
+      return null;
+    }
+
+    const searchList = (node) => {
+      if (node.nextNode === null) {
+        return node;
+      }
+
+      return searchList(node.nextNode);
     };
 
     return searchList(node);
