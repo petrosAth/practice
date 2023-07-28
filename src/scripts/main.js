@@ -47,6 +47,35 @@ class LinkedList {
     this.listHead = newHeadNode;
   }
 
+  at(index) {
+    const node = this.listHead;
+    let nodeIndex = 0;
+
+    if (node === null) {
+      return undefined;
+    }
+
+    if (index === undefined) {
+      return this.listHead;
+    }
+
+    const searchList = (node, index) => {
+      if (node === null) {
+        return undefined;
+      }
+
+      if (index === nodeIndex) {
+        return node;
+      }
+
+      nodeIndex++;
+
+      return searchList(node.nextNode, index);
+    };
+
+    return searchList(node, index);
+  }
+
   get size() {
     const node = this.listHead;
     let size = 0;
